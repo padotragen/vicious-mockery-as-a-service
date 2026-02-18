@@ -1,1 +1,2 @@
 FLASK_APP=insult.py
+FLASK_DEBUG=1
