@@ -18,8 +18,11 @@ elements = list(app_data.keys())
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username' : 'Miguel'}
-    return render_template('index.html', title='Home', user=user, categories=elements)
+    random_element = random.choice(elements)
+    data_len = len(app_data[random_element])
+    ran_num = random.randint(0, data_len) - 1
+    data = app_data[random_element][ran_num]
+    return render_template('index.html', title='Home', random_element=random_element, insult=data, categories=elements)
 
 @app.route('/<category>')
 def category_insults(category):
