@@ -2,14 +2,7 @@
 <html>
 
 <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/static/data/css/materialize.min.css" media="screen,projection" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-
+    <link type="text/css" rel="stylesheet" href="/static/data/css/default.css" />
     {% if title %}
     <title>{{ title | replace("_", " ") | title }} - Vicious Mockery</title>
     {% else %}
@@ -19,13 +12,18 @@
 
 <body>
     <nav>
-        <div class="nav-wrapper">
+        <div class="navbar">
             <a href="/index" class="brand-logo">Vicious Mockery:</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                {% for cat in categories %}
-                <li><a href="/{{ cat }}">{{ cat | replace("_", " ") | title }}</a></li>
-                {% endfor %}
-            </ul>
+            <div class="dropdown">
+                <button class="dropbtn">Categories
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    {% for cat in categories %}
+                    <a href="/{{ cat }}">{{ cat | replace("_", " ") | title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </nav>
     <div>
